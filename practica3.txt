@@ -1,0 +1,56 @@
+import java.util.Scanner;
+public class ConversionUnid
+{
+    public static void main(String []args)
+    {
+        Scanner entrada = new Scanner(System.in);
+        double pulgada = 2.54;
+        double libra = 0.4536;
+        double galon = 3.785;
+        int opciones;
+
+        do {
+            System.out.println("\n===Calculadora Unidades===");
+            System.out.println("1. Calcular Pulgadas");
+            System.out.println("2. Calcular Libras");
+            System.out.println("3. Calcular Galones");
+            System.out.println("0. Salir");
+            System.out.print("Seleccione una opción:");
+            opciones = entrada.nextInt();
+
+            switch (opciones) {
+                case 1:
+                    System.out.println("Ingresa un valor:");
+                    double numero = entrada.nextDouble();
+                    numero = numero * pulgada;
+                    System.out.println("El valor calculado es:"+ numero);
+
+                case 2:
+                    System.out.println("Ingresa un valor:");
+                    double numero2 = entrada.nextDouble();
+                    numero = numero2 * libra;
+
+                case 3:
+                    System.out.println("Ingresa un valor:");
+                    double numero3 = entrada.nextDouble();
+                    numero = numero3 * pulgada;
+
+
+                case 0:
+                    System.out.println("\nSaliendo del menu...");
+                    break;
+
+                default:
+                    System.out.println("\nOpción no Válida");
+
+            } try {
+        Thread.sleep(2500);
+
+
+    }catch (InterruptedException ignored){}
+
+    }while (opciones !=0);
+        entrada.close();
+
+    }
+}
