@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class AdivinaNumDoWhile
+{
+
+
+        public static void main (String [] args)
+        {
+            Scanner scanner = new Scanner(System.in);
+            int numeroSecreto = (int)(Math.random()* 100) + 1;
+            int intento;
+            int contador = 0;
+
+            System.out.println("Adivine el número secreto entre 1 y 100:");
+            System.out.print("Ingresa tu intento:");
+            intento = scanner.nextInt();
+            contador++;
+
+            do
+            {
+                if (intento < numeroSecreto)
+                {
+                    System.out.println("Demasiado bajo. Intenta de nuevo.");
+                }
+                else
+                {
+                    System.out.println("Demasiado Alto. Intenta de nuevo.");
+                }
+                System.out.print("Ingresa tu intento:");
+                intento = scanner.nextInt();
+                contador++;
+
+
+            }while(intento != numeroSecreto);
+            System.out.println("!Correcto! El numero era:" + numeroSecreto);
+            System.out.println("Numero de intentos:" + contador);
+
+            scanner.close();
+        }
+
+    }
