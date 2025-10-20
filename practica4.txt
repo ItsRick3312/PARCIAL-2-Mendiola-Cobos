@@ -1,0 +1,48 @@
+import java.util.Random;
+
+public class ControlDeCalidad {
+    public static void main(String[] args)
+    {
+        int MAX_PROTOTIPOS = 10;
+        int PRECISION_MINIMA = 70;
+        int PRECISION_MAXIMA = 100;
+        int FALLAS_CONSECUTIVAS_MAX = 3;
+
+        Random random = new Random();
+        int contadorFallasConsecutivas = 0;
+        int contadorPrototipos = 0;
+
+        do {
+            contadorPrototipos++;
+            int nivelPrecision = random.nextInt(PRECISION_MAXIMA - PRECISION_MINIMA + 1) + PRECISION_MINIMA;
+
+            String resultadoInspeccion;
+            if (nivelPrecision >= 80)
+            {
+                resultadoInspeccion = "Correcto";
+                contadorFallasConsecutivas = 0;
+            } else {
+                resultadoInspeccion = "Fallo";
+                contadorFallasConsecutivas++;
+            }
+
+
+            System.out.println("Número de prototipo: " + contadorPrototipos);
+            System.out.println("Nivel de precisión: " + nivelPrecision);
+            System.out.println("Resultado de inspección: " + resultadoInspeccion);
+            System.out.println();
+
+
+            if (contadorFallasConsecutivas >= FALLAS_CONSECUTIVAS_MAX)
+            {
+                System.out.println("Deteniendo producción debido a 3 fallas consecutivas.");
+                break;
+            }
+        } while (contadorPrototipos < MAX_PROTOTIPOS);
+
+
+        if (contadorPrototipos == MAX_PROTOTIPOS) {
+            System.out.println("Producción revisada: todos los prototipos han sido inspeccionados.");
+        }
+    }
+}
